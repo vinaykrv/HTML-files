@@ -1,0 +1,93 @@
+<!-- Table in HTML  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>l3</title>
+</head>
+
+<body>
+
+    <table border="black">              
+        <caption> Fast Food Bill</caption>        <!-- Table name at the top -->
+
+        <thead>                     <!-- "thead" is used to declare fields of a Table in "th" tag -->
+
+            <tr>                   <!-- "tr" tag used to create every row of Table including row of table field -->
+
+                <th rowspan="2">Item</th>    <!-- Item and Cost are field of this Table thats why we use "th" tag and It is Bold by deafault-->
+                <th colspan="2">Cost</th>         
+            </tr>
+            <tr>
+                 <th>INR</th>           <!-- INR and USD is also table field-->
+                 <th>USD</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Afgani Chaap</td>  <!-- "td" tag is used to write/give Data in the table-->
+                <td>Rs 150</td>
+                <td>$2</td>
+            </tr>
+
+            <tr>
+                <td>Panner Momo</td>
+                <td>Rs 80</td>
+                <td>$ 1</td>
+            </tr>
+
+            <tr>
+                <td>Chilli Patato</td>
+                <td>Rs 110</td>
+                <td>$ 1.5</td>
+            </tr>
+
+            <tr>
+                <td>Burger</td>
+                <td>Rs 60</td>
+                <td>$ 0.8</td>
+            </tr>
+            <tr>
+                <td>Cold Coffee</td>
+                <td>Rs 50</td>
+                <td>$ 0.6</td>
+            </tr>
+            <tr>
+                <td>Mojito</td>
+                <td>Rs 100</td>
+                <td>$ 1.2</td>
+            </tr>
+            <tr>
+                <td>Chole Bature</td>
+                <td>Rs 80</td>
+                <td>$ 1</td>
+            </tr>
+        </tbody>
+
+        <!-- footer is not frequently used but it is used to display sum type of all coloumn data-->
+        <tfoot>
+
+            <tr>
+                <td>Total</td>
+                <td>Rs 530</td>
+                <td>$ 8.1</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Delicious and best in the world with Ecexptional taste</td>
+            </tr>
+
+        </tfoot>
+    </table>
+    <!-- <p>Delicious and best in the world with Ecexptional taste</p> -->
+
+    
+
+
+</body>
+
+</html>

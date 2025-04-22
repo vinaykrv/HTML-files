@@ -1,0 +1,100 @@
+<!-- Forms are used to collect data from the user -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+
+    <form action="/action"> <!-- action attribute kya action perform hoga submit karne ke baad ya kis file main form ka data save hoga-->
+
+        Time
+        <input type="time"> <!-- input element is used to display the area in which user type their input -->
+        <br>
+
+        Date
+        <input type="date">
+        <br>
+
+        Colour
+        <input type="color">
+        <br>
+
+        E-mail
+        <input type="email">
+        <br>
+
+        File
+        <input type="file">
+        <br>
+
+
+        <label>
+            Name
+            <input type="text" placeholder="Enter Name">
+        </label>
+        <br>
+
+        <label>
+            Username
+            <input type="text" placeholder="Enter Username">
+        </label>
+        <br>
+
+        <label>
+            Password
+            <input type="password" placeholder="Enter Password">
+        </label>
+        <br>
+
+        <label>
+            Number
+            <input type="number" placeholder="Enter number">
+        </label>
+        <br>
+
+        <label>
+            Time
+            <input type="time">
+        </label>
+        <br>
+
+        <!-- another approach for to write label element that we going to use in projects -->
+
+        <label for="un">Enter Contact number :</label>   <!-- for ki help se iss lable ko "un" id wale input element ke saath relate karo -->
+        <input type="number" id="un" placeholder="Your Contact number"> <!-- iss input element ki id hai "un" aur id means unique name-->
+
+        <div>
+            <label for="age1"> Enter age :</label>
+            <input type="number" id="age1" placeholder="Enter your age">
+        </div>
+
+        <div>
+            <button>Submit0</button>           <!-- by default button type submit hota hai-->
+        </div>
+
+        <div>
+            <!--Types of buttons-->
+            <button type="submit">Submit1</button>
+            <button type="button">Clickme</button>
+            <button type="reset">Reset info</button>
+        </div>
+
+        <div>
+            <input type="submit" value="Submit2">  <!-- NO recommended approach => creating submit button using input element and value is used to name the button and by defaut type hi button ka name hota hai agar hum value attribute use nahi karte-->
+            <input type="reset">
+        </div>
+
+
+    </form>
+
+    <button type="Submit">submit3</button>
+    <!-- by default form ke bahar button ki functionality submit ki jagah none hoti hai kyuki uske pass koi data nahi hai submit karne ke liye-->
+</body>
+
+</html>

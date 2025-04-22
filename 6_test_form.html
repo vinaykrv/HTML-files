@@ -1,0 +1,108 @@
+<!-- Problem Statement -->
+<!-- Create a form with fields First name, Last name, Email, Age, Contact number and Password. Validate all fields and Save the data in the Local Storage -->
+<!-- Only user with crediantials aready saved in the local Storage can login and without saved crediantials it show user not found-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();           // Prevent form submission
+
+            let firstName = document.getElementById("fn").value;
+            let lastName = document.getElementById("ln").value;
+            let email = document.getElementById("em").value;
+            let age = document.getElementById("ag").value;
+            let contact = document.getElementById("cn").value;
+            let password = document.getElementById("pss").value;
+
+            // Validation
+            if (firstName === "" || email === "" || age === "" || contact === "" || password === "") {
+                alert("All fields are required!");
+                return;
+            }
+
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                alert("Enter a valid email address!");
+                return;
+            }
+
+            if (isNaN(age) || age <= 0) {
+                alert("Enter a valid age!");
+                return;
+            }
+
+            if (!/^\d{10}$/.test(contact)) {
+                alert("Enter a valid 10-digit contact number!");
+                return;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long!");
+                return;
+            }
+
+            // Store data in localStorage
+            let formData = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                age: age,
+                contact: contact,
+                password: password
+            };
+
+            localStorage.setItem("userData", JSON.stringify(formData));
+
+            alert("Form submitted successfully!");
+            document.getElementById("userForm").reset(); // Reset form
+        }
+        
+    </script>
+</head>
+
+<body>
+    <h1>Sign Up Page</h1>
+
+    <form id="userForm" onsubmit="validateForm(event)">
+        <div>
+            <label for="fn">First Name</label>
+            <input type="text" id="fn" name="data1" placeholder="Enter your First name">
+        </div>
+
+        <div>
+            <label for="ln">Last Name(optional)</label>
+            <input type="text" id="ln" name="data2" placeholder="Enter your Last name">
+        </div>
+
+        <div>
+            <label for="em">Email ID</label>
+            <input type="email" id="em" name="data3" placeholder="Enter your Email ID">
+        </div>
+
+        <div>
+            <label for="ag">Age</label>
+            <input type="number" id="ag" name="data4" placeholder="Enter your age">
+        </div>
+
+        <div>
+            <label for="cn">Contact number</label>
+            <input type="number" id="cn" name="data5" placeholder="Enter your Contact number">
+        </div>
+
+        <div>
+            <label for="pss">Password</label>
+            <input type="password" id="pss" name="data6" placeholder="Enter your Password">
+        </div>
+
+        <div>
+            <button type="submit">Submit Karo</button>
+        </div>
+    </form>
+</body>
+
+</html>

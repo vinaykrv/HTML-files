@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form with JavaScript</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Form Container */
+        #formContainer {
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Heading */
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Label Styling */
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Input Styling */
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Error Message */
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* Submit Button */
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Form Container -->
+    <div id="formContainer">
+        <h2>User Registration</h2>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let formContainer = document.getElementById("formContainer");
+
+            // Function to create input fields with labels and error divs
+            function createInput(labelText, id, type = "text") {
+                let label = document.createElement("label");
+                label.innerText = labelText;
+
+                let input = document.createElement("input");
+                input.type = type;
+                input.id = id;
+
+                let errorDiv = document.createElement("div");
+                errorDiv.id = id + "Error";
+                errorDiv.className = "error";
+
+                formContainer.appendChild(label);
+                formContainer.appendChild(input);
+                formContainer.appendChild(errorDiv);
+            }
+
+            // Create form inputs
+            createInput("First Name", "fn");
+            createInput("Last Name (Optional)", "ln"); // Marking as optional
+            createInput("Email ID", "em", "email");
+            createInput("Age", "ag", "number");
+            createInput("Contact Number", "cn", "number");
+            createInput("Password", "pss", "password");
+
+            // Create Submit Button
+            let submitButton = document.createElement("button");
+            submitButton.innerText = "Register";
+            submitButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                validateForm();
+            });
+            formContainer.appendChild(submitButton);
+
+            // Validation Function
+            function validateForm() {
+                let firstName = document.getElementById("fn").value.trim();
+                let lastName = document.getElementById("ln").value.trim();
+                let email = document.getElementById("em").value.trim();
+                let age = document.getElementById("ag").value.trim();
+                let contact = document.getElementById("cn").value.trim();
+                let password = document.getElementById("pss").value.trim();
+
+                let nameRegex = /^[A-Za-z]+$/;
+                let emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail.com)$/;
+                let isValid = true;
+
+                // Clear previous error messages
+                document.querySelectorAll('.error').forEach(e => e.innerHTML = '');
+
+                if (!firstName) {
+                    document.getElementById("fnError").innerText = "First Name is required!";
+                    isValid = false;
+                } else if (!nameRegex.test(firstName)) {
+                    document.getElementById("fnError").innerText = "Only alphabets allowed!";
+                    isValid = false;
+                }
+
+                // Last Name is optional but must be alphabets if entered
+                if (lastName && !nameRegex.test(lastName)) {
+                    document.getElementById("lnError").innerText = "Only alphabets allowed!";
+                    isValid = false;
+                }
+
+                if (!email) {
+                    document.getElementById("emError").innerText = "Email is required!";
+                    isValid = false;
+                } else if (!emailRegex.test(email)) {
+                    document.getElementById("emError").innerText = "Only gmail.com, yahoo.com, outlook.com and hotmail.com are allowed!";
+                    isValid = false;
+                }
+
+                if (!age || isNaN(age) || age <= 0) {
+                    document.getElementById("agError").innerText = "Enter a valid age!";
+                    isValid = false;
+                }
+
+                if (!contact) {
+                    document.getElementById("cnError").innerText = "Contact number is required!";
+                    isValid = false;
+                } else if (!/^\d{10}$/.test(contact)) {
+                    document.getElementById("cnError").innerText = "Enter a valid 10-digit number!";
+                    isValid = false;
+                }
+
+                if (!password) {
+                    document.getElementById("pssError").innerText = "Password is required!";
+                    isValid = false;
+                } else if (password.length < 6) {
+                    document.getElementById("pssError").innerText = "Must be at least 6 characters!";
+                    isValid = false;
+                }
+
+                if (!isValid) return;
+
+                // Check for unique email in localStorage
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+                if (users.some(user => user.email === email)) {
+                    document.getElementById("emError").innerText = "This email is already registered!";
+                    return;
+                }
+
+                let formData = { firstName, lastName, email, age, contact, password };
+                users.push(formData);
+                localStorage.setItem("users", JSON.stringify(users));
+
+                alert("You are successfully registered!");
+                document.querySelectorAll("input").forEach(input => input.value = ""); // Reset inputs
+            }
+        });
+    </script>
+
+</body>
+
+</html>

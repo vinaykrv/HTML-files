@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Change Text</title>
+</head>
+
+<body>
+    <!-- <p id="message">Hello, JavaScript!</p>
+    <button onclick="changeText()">Change Text</button>
+
+    <script>
+        function changeText() {
+            document.getElementById("message").innerText = "Text Changed!";
+        }
+    </script> -->
+
+    <!-- <p id="demo">Original Text</p>
+    <button onclick="changeText()">Click Me</button>
+
+    <script>
+        function changeText() {
+            document.getElementById("demo").textContent = "Text Changed!";
+        }
+    </script> -->
+
+    <!-- <body>
+        <button onclick="changeBgColor()">Change Background</button>
+
+        <script>
+            function changeBgColor() {
+                document.body.style.backgroundColor = "lightblue";
+            }
+        </script>
+    </body> -->
+
+    <!-- <p id="text">This is a hidden message.</p>
+<button onclick="toggleText()">Show/Hide</button>
+
+<script>
+    function toggleText() {
+        let para = document.getElementById("text");
+        if (para.style.display === "none") {
+            para.style.display = "block";
+        } else {
+            para.style.display = "none";
+        }
+    }
+</script> -->
+
+<!-- <input type="text" id="nameInput" onkeyup="showText()">
+<p id="output"></p>
+
+<script>
+    function showText() {
+        let input = document.getElementById("nameInput").value;
+        document.getElementById("output").innerText = "You typed: " + input;
+    }
+</script> -->
+
+<!-- <form onsubmit="return validateForm()">
+    <input type="text" id="username" placeholder="Enter your name">
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    function validateForm() {
+        let name = document.getElementById("username").value;
+        if (name === "") {
+            alert("Name cannot be empty!");
+            return false; // Prevent form submission
+        }
+        return true;
+    }
+</script> -->
+
+<form onsubmit="return checkPassword()">
+    <input type="password" id="password" placeholder="Enter password">
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    function checkPassword() {
+        let password = document.getElementById("password").value;
+
+        if (password.length == 0) {
+            alert("Enter Password");
+            return false;
+        }
+        else if (password.length < 6) {
+            alert("Password must be at least 6 characters long!");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

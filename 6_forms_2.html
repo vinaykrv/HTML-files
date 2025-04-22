@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forms2</title>
+</head>
+<body>
+
+    <!-- Form 1 -->
+    <form action="act">
+        <div>
+            <label for="og">Write your name</label>                       <!-- "name" attribute se key-value pair banta hai jiski help se input main enter hone wala data bhi aage carry forward hota hai-->
+            <input type="text" id="og" name="use" placeholder="Naam likh" >    <!-- "use" naam hai iss input element ka and baand main key "use" ko manenge aur jo input element main enter hoga usko value(key "use" ki) maanenge aur ye URL main bhi show hota hai-->
+        </div>
+        <div>
+            <label for="ogy">Write your age</label>
+            <input type="number" id="ogy" name="aging" placeholder="Umar likh">
+        </div>
+        <div>
+            <button type="submit">submit kar</button>
+        </div>
+
+        <!-- D:/Coding%20files/VS%20files/Web%20Dev/js%20files/act?use=vinay&aging=20 here use is key and vinay is value  -->
+    </form>
+
+    <hr>
+
+    <!-- Form 2 -->
+    <form action="https://www.youtube.com/results">   <!-- yaha action input element ka data iss URl ko bhejta hai aur fir proper URL bankar youtube server main jake search hoga aur result display karega -->
+        <div>
+              <label for="srh">Search on Youtube</label>
+              <input type="text" id="srh" name="search_query" placeholder="search here">  <!-- youtube main name attribute ko seach_query likha gaya hai-->
+        </div>
+        <div>
+            <button type="submit">Search</button>
+        </div>
+        
+    </form>
+    
+    <hr>
+
+    <!--Form 3 -->
+    <form action="https://www.google.com/search">
+        <div>
+             <label for="ggl">Search on Google</label>
+             <input type="text" id="ggl" name="q" placeholder="yaha search kare">
+        </div>
+        <div>
+               <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <hr>
+    <!--checkbox-->
+    <!-- Multiple Selection is ON -->
+    <form action="serverFile">
+        <div>
+             <label for="mvp">I am 18+</label>
+             <input type="checkbox" id="mvp" name="qq" checked >  <!-- we can use "checked" attribute in input element to show bydefault check/tick symbol in the checkbox-->
+             
+        </div>
+        <div>
+            <button type="submit">Submit karo</button>        <!-- qq=on URL main pass hoga agar box checked hai -->
+        </div>
+    
+    </form>
+
+
+    <hr>
+    <!-- Radio button -->
+    <!-- Only single selection-->
+     <form action="serverFile">
+        <div>
+            Choose your fruit
+            <br>
+            <label for="fal1"> Mango</label>
+            <input type="radio" id="fal1" name="fruit" value="Mango">  <!-- URL main fruit=on pass hoga agar alag se value nahi di-->
+            
+            <label for="fal2">Orange</label>
+            <input type="radio" id="fal2" name="fruit" value="Orange">
+
+            <label for="fal3">Cherry</label>
+            <input type="radio" id="fal3" name="fruit" value="Cherry">
+
+        </div>
+        <div>
+            <button type="submit">Submit karo</button>        
+        </div>
+     </form>
+    
+     <hr>
+
+     <!-- multiple checkbox example-->
+      <form action="serverFile">
+        <div>
+            Choose Subjects
+            <label for="sub1">Mathematics</label>
+            <input type="checkbox" id="sub1" name="subject" value="Math">
+
+            <label for="sub2">Science</label>
+            <input type="checkbox" id="sub2" name="subject" value="sci">
+
+            <label for="sub3">English</label>
+            <input type="checkbox" id="sub3" name="subject" value="eng">
+            
+        </div>
+
+        <div>
+            <button type="submit">Submit Mar</button>
+        </div>
+        
+      </form>
+
+      <hr>
+      
+      <!--Drop down select-->
+      <form action="serverFile">
+         <div>
+            <label for="ling">What is your Gender</label>      <!-- label to drop down -->
+            <select name="Gender" id="ling">                 <!-- Drop down is created using "select" tag and options are created using "option" tag inside "select" tag-->
+              <option> Select your option</option>   <!--by default option-->
+              <option value="M">Male</option>         <!-- bcz of value attribute URL main Gender=M pass hoga-->
+              <option value="F" selected >Female</option> <!-- using "selected" keyword we can automatically select "Female" from the drop down options-->
+              <option value="O">Others</option>
+            </select>
+         </div>
+
+         <div>
+            <button type="submit">Submit kr yarr</button>
+         </div>
+             
+
+      </form>
+
+
+      <hr>
+
+
+</body>
+</html>
+
+
+
