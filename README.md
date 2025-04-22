@@ -46,7 +46,7 @@ If you have any suggestions or would like to add new examples, feel free to fork
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the [MIT License](licence.txt).
 
 ---
 
